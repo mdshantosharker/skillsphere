@@ -1,11 +1,17 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+import { FaArrowRightToBracket } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const router = useRouter()
+  const { data } = authClient.useSession();
+  const user = data?.user;
+  console.log(user);
   const links = (
     <>
       <li>
@@ -17,9 +23,18 @@ export default function Navbar() {
       <li>
         <Link href="/profile">My Profile</Link>
       </li>
-      
     </>
   );
+
+  const userSignOut = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/login"); // redirect to login page
+        },
+      },
+    });
+  };
 
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
@@ -61,10 +76,30 @@ export default function Navbar() {
           </div>
         </div>
         <ul className="hidden items-center gap-4 md:flex">{links}</ul>
+
         <div className="hidden items-center gap-4 md:flex">
-          <Link href="/login"><Button>Login</Button></Link>
-          <Link href="/register"><Button>Sign Up</Button></Link>
-         
+          {user ? (
+            <>
+              <Avatar>
+                <Avatar.Image alt={user.name} src={user?.image} />
+                <Avatar.Fallback>{user?.name}</Avatar.Fallback>
+              </Avatar>
+
+              <Button variant="danger-soft" onClick={userSignOut}>
+                SignOut <FaArrowRightToBracket />
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <Button>Login</Button>
+              </Link>
+
+              <Link href="/register">
+                <Button>Sign Up</Button>
+              </Link>
+            </>
+          )}
         </div>
       </header>
 
@@ -76,14 +111,29 @@ export default function Navbar() {
 
             {/* Login and signup */}
             <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
-              <Link href="/login" className="block py-2">
-                Login
-              </Link>
+              {user ? (
+                <>
+                  <Avatar>
+                    <Avatar.Image alt={user.name} src={user?.image} />
+                    <Avatar.Fallback>{user?.name}</Avatar.Fallback>
+                  </Avatar>
 
-              <Link href={"/register"}>
-                {" "}
-                <Button className="w-full"> Sign Up </Button>
-              </Link>
+                  <Button variant="danger-soft" onClick={userSignOut}>
+                    SignOut <FaArrowRightToBracket />
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link href="/login" className="block py-2">
+                    Login
+                  </Link>
+
+                  <Link href={"/register"}>
+                    {" "}
+                    <Button className="w-full"> Sign Up </Button>
+                  </Link>
+                </>
+              )}
             </li>
           </ul>
         </div>

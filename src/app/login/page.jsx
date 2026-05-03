@@ -3,7 +3,6 @@ import { authClient } from "@/lib/auth-client";
 import { Check, Eye, EyeSlash } from "@gravity-ui/icons";
 import {
   Button,
-  Description,
   FieldError,
   Form,
   Input,
@@ -17,25 +16,25 @@ import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  
-    const onSubmit = async (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.currentTarget);
-      const userData = Object.fromEntries(formData.entries());
 
-      const { data, error } = await authClient.signIn.email({
-        email: userData.email,
-        password: userData.password,
-        callbackURL: "/",
-      });
-      console.log(data);
-      if (data) {
-        alert("Login successfully");
-      }
-      if (error) {
-        alert(error.message);
-      }
-    };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const userData = Object.fromEntries(formData.entries());
+
+    const { data, error } = await authClient.signIn.email({
+      email: userData.email,
+      password: userData.password,
+      callbackURL: "/",
+    });
+    console.log(data);
+    if (data) {
+      alert("Login successfully");
+    }
+    if (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <div className="min-h-screen mt-10 flex items-center justify-center  px-4">
