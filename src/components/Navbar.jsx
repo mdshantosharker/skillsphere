@@ -1,29 +1,35 @@
 "use client";
+
 import { useState } from "react";
 import { Avatar, Button } from "@heroui/react";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { FaArrowRightToBracket } from "react-icons/fa6";
+import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import { useRouter } from "next/navigation";
+import NavLink from "./NavLink";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router = useRouter()
+
+  const router = useRouter();
+
   const { data } = authClient.useSession();
+
   const user = data?.user;
-  
+
   const links = (
     <>
       <li>
-        <Link href="/">Home</Link>
-      </li>
-      <li>
-        <Link href="/courses">Courses</Link>
+        <NavLink href="/">Home</NavLink>
       </li>
 
-      
       <li>
-        <Link href="/profile">My Profile</Link>
+        <NavLink href="/courses">Courses</NavLink>
+      </li>
+
+      <li>
+        <NavLink href="/profile">My Profile</NavLink>
       </li>
     </>
   );
@@ -32,112 +38,135 @@ export default function Navbar() {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push("/login"); // redirect to login page
+          router.push("/login");
         },
       },
     });
   };
 
   return (
-    <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
-      <header className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-0">
-        <div className="flex items-center gap-4">
+    <nav className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur-xl">
+      <header className="mx-auto flex h-20 container items-center justify-between px-6 lg:px-10">
+        <div className="flex items-center gap-3">
           <button
-            className="md:hidden"
+            className="text-white md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
           >
-            <span className="sr-only">Menu</span>
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {isMenuOpen ? (
+              <HiX className="text-3xl" />
+            ) : (
+              <HiOutlineMenuAlt3 className="text-3xl" />
+            )}
           </button>
-          <div className="flex items-center gap-3">
-            {/* <Logo /> */}
-            <p className="font-bold">ACME</p>
-          </div>
+
+          <Link href="/">
+            <h1 className="bg-linear-to-r from-blue-400 to-cyan-300 bg-clip-text text-3xl font-extrabold text-transparent">
+              CodeNest
+            </h1>
+          </Link>
         </div>
-        <ul className="hidden items-center gap-4 md:flex">{links}</ul>
+
+        <ul className="hidden items-center text-white gap-8 md:flex">
+          {links}
+        </ul>
 
         <div className="hidden items-center gap-4 md:flex">
           {user ? (
             <>
-              <Avatar>
-                <Avatar.Image alt={user.name} src={user?.image} />
-                <Avatar.Fallback>{user?.name}</Avatar.Fallback>
-              </Avatar>
+              <div className="flex items-center gap-3 rounded-full border bbg-slate-900 px-3 py-2">
+                <Avatar>
+                  <Avatar.Image alt={user?.name} src={user?.image} />
+                  <Avatar.Fallback>{user?.name}</Avatar.Fallback>
+                </Avatar>
 
-              <Button variant="danger-soft" onClick={userSignOut}>
-                SignOut <FaArrowRightToBracket />
+                <div className="leading-none">
+                  <h3 className="text-sm font-semibold text-white">
+                    {user?.name}
+                  </h3>
+                </div>
+              </div>
+
+              <Button
+                onClick={userSignOut}
+                className="h-11 rounded-xl bg-red-500/10 px-5 text-red-400 transition hover:bg-red-500 hover:text-white"
+              >
+                Sign Out
+                <FaArrowRightToBracket />
               </Button>
             </>
           ) : (
             <>
               <Link href="/login">
-                <Button>Login</Button>
+                <Button
+                  variant="light"
+                  className="h-11 rounded-xl px-6 text-slate-300 hover:bg-slate-800"
+                >
+                  Login
+                </Button>
               </Link>
 
               <Link href="/register">
-                <Button>Sign Up</Button>
+                <Button className="h-11 rounded-xl bg-blue-500 px-6 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105 hover:bg-blue-600">
+                  Get Started
+                </Button>
               </Link>
             </>
           )}
         </div>
       </header>
 
-      {/* small device */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="border-t border-separator md:hidden">
-          <ul className="flex flex-col gap-2 p-4">
-            {links}
+        <div className="border-t border-slate-800 bg-slate-950 md:hidden">
+          <div className="space-y-6 px-6 py-6">
+            {/* Links */}
+            <ul className="space-y-5 text-lg">{links}</ul>
 
-            {/* Login and signup */}
-            <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
+            {/* Auth */}
+            <div className="border-t border-slate-800 pt-6">
               {user ? (
-                <>
-                  <Avatar>
-                    <Avatar.Image alt={user.name} src={user?.image} />
-                    <Avatar.Fallback>{user?.name}</Avatar.Fallback>
-                  </Avatar>
+                <div className="space-y-5">
+                  <div className="flex items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-3">
+                    <Avatar
+                      src={user?.image}
+                      className="h-11 w-11 border border-slate-700"
+                    />
 
-                  <Button variant="danger-soft" onClick={userSignOut}>
-                    SignOut <FaArrowRightToBracket />
+                    <div>
+                      <h3 className="font-semibold text-white">{user?.name}</h3>
+
+                      <p className="text-sm text-slate-400">Welcome back 👋</p>
+                    </div>
+                  </div>
+
+                  <Button
+                    onClick={userSignOut}
+                    className="h-12 w-full rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white"
+                  >
+                    Sign Out
+                    <FaArrowRightToBracket />
                   </Button>
-                </>
+                </div>
               ) : (
-                <>
-                  <Link href="/login" className="block py-2">
-                    Login
+                <div className="flex flex-col gap-3">
+                  <Link href="/login">
+                    <Button
+                      variant="bordered"
+                      className="h-12 w-full rounded-xl border-slate-700 text-white hover:bg-slate-900"
+                    >
+                      Login
+                    </Button>
                   </Link>
 
-                  <Link href={"/register"}>
-                    {" "}
-                    <Button className="w-full"> Sign Up </Button>
+                  <Link href="/register">
+                    <Button className="h-12 w-full rounded-xl bg-blue-500 font-semibold text-white hover:bg-blue-600">
+                      Create Account
+                    </Button>
                   </Link>
-                </>
+                </div>
               )}
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       )}
     </nav>
