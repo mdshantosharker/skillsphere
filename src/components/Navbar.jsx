@@ -11,7 +11,7 @@ export default function Navbar() {
   const router = useRouter()
   const { data } = authClient.useSession();
   const user = data?.user;
-  console.log(user);
+  
   const links = (
     <>
       <li>
