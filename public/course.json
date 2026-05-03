@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch. Master HTML, CSS, JavaScript, React and Node.js.",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=90",
+    "category": "Web Dev"
+  },
+  {
+    "id": 2,
+    "title": "Machine Learning A-Z: AI & Python",
+    "instructor": "Sarah Chen",
+    "duration": "35 hours",
+    "rating": 4.9,
+    "level": "Intermediate",
+    "description": "Master machine learning algorithms, neural networks, and real-world AI projects with Python & scikit-learn.",
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=90",
+    "category": "AI & ML"
+  },
+  {
+    "id": 3,
+    "title": "Ethical Hacking & Cybersecurity",
+    "instructor": "Mike Rahman",
+    "duration": "28 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Learn penetration testing, network security, vulnerability assessment, and ethical hacking from industry experts.",
+    "image": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1200&q=90",
+    "category": "Cybersecurity"
+  },
+  {
+    "id": 4,
+    "title": "React & Next.js — Frontend Mastery",
+    "instructor": "Priya Sharma",
+    "duration": "22 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Build production-ready React applications with Next.js, TypeScript, Tailwind CSS and modern state management.",
+    "image": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90",
+    "category": "Frontend"
+  },
+  {
+    "id": 5,
+    "title": "Flutter Mobile App Development",
+    "instructor": "Carlos Mendez",
+    "duration": "30 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Create cross-platform iOS & Android apps with Flutter and Dart. Publish your first app to both stores.",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=90",
+    "category": "App Dev"
+  },
+  {
+    "id": 6,
+    "title": "Deep Learning & Neural Networks",
+    "instructor": "Dr. Anika Patel",
+    "duration": "40 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Dive into CNNs, RNNs, Transformers, and GANs. Build cutting-edge deep learning models with TensorFlow & PyTorch.",
+    "image": "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=1200&q=90",
+    "category": "AI & ML"
+  },
+  {
+    "id": 7,
+    "title": "Node.js & Express — Backend Development",
+    "instructor": "James Wilson",
+    "duration": "25 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Build scalable REST APIs, authentication systems, and microservices with Node.js, Express, and MongoDB.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=90",
+    "category": "Backend"
+  },
+  {
+    "id": 8,
+    "title": "Cloud Security & AWS Defense",
+    "instructor": "Nora Kim",
+    "duration": "18 hours",
+    "rating": 4.8,
+    "level": "Advanced",
+    "description": "Secure AWS infrastructure, implement IAM policies, threat detection, and compliance for enterprise environments.",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=90",
+    "category": "Cybersecurity"
+  },
+  {
+    "id": 9,
+    "title": "Data Science with Python & Pandas",
+    "instructor": "Liam O'Brien",
+    "duration": "32 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Analyze and visualize data using Python, Pandas, NumPy, and Matplotlib. Build real data science projects.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
+    "category": "Data Science"
+  },
+  {
+    "id": 10,
+    "title": "iOS App Development with Swift",
+    "instructor": "Yuki Tanaka",
+    "duration": "27 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Build native iPhone apps using Swift and SwiftUI. Deploy to App Store with real portfolio projects.",
+    "image": "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=1200&q=90",
+    "category": "App Dev"
+  },
+  {
+    "id": 11,
+    "title": "Django REST API & Python Backend",
+    "instructor": "Fatima Al-Hassan",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Build powerful backend APIs with Django REST Framework, PostgreSQL, JWT auth, and Docker deployment.",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=90",
+    "category": "Backend"
+  },
+  {
+    "id": 12,
+    "title": "GPT & LLM Engineering",
+    "instructor": "Dr. Kevin Zhang",
+    "duration": "15 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Build AI-powered apps with OpenAI, LangChain, RAG, fine-tuning, and prompt engineering techniques.",
+    "image": "https://images.unsplash.com/photo-1676299081847-824916de030a?w=1200&q=90",
+    "category": "AI & ML"
+  },
+  {
+    "id": 13,
+    "title": "UI/UX Design & Figma Complete Course",
+    "instructor": "Amara Nwosu",
+    "duration": "22 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Design beautiful, user-friendly interfaces. Learn Figma, design systems, prototyping, and UX research.",
+    "image": "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=1200&q=90",
+    "category": "Frontend"
+  },
+  {
+    "id": 14,
+    "title": "Network Security & Penetration Testing",
+    "instructor": "Alex Petrov",
+    "duration": "34 hours",
+    "rating": 4.8,
+    "level": "Advanced",
+    "description": "Master OSCP-style pen testing, network analysis, exploit development, and security reporting.",
+    "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200&q=90",
+    "category": "Cybersecurity"
+  },
+  {
+    "id": 15,
+    "title": "React Native — Cross-Platform Apps",
+    "instructor": "Sofia Rodriguez",
+    "duration": "26 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Build and ship iOS & Android apps with React Native, Expo, and Redux. Includes authentication and payment integration.",
+    "image": "https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=1200&q=90",
+    "category": "App Dev"
+  }
+]
