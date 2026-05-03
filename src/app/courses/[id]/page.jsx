@@ -60,16 +60,15 @@ const CourseDetailsPage = async ({ params }) => {
             </div>
           </div>
 
-       
           <div className="mt-8 rounded-2xl border border-slate-100 bg-slate-50 p-5">
             <h3 className="flex items-center gap-2 text-lg font-semibold text-slate-800">
               <FiTarget className="text-blue-600" /> What you will learn
             </h3>
 
             <ul className="mt-3 space-y-2 text-sm text-slate-500">
-              {
-                findCourse.whatYouWillLearn.map(f=> <li>• {f}</li>)
-              }
+              {findCourse.whatYouWillLearn.map((f) => (
+                <li>• {f}</li>
+              ))}
               {/* <li>• Build real-world web applications</li>
               <li>• Master React & Next.js</li>
               <li>• Learn backend API development</li>
@@ -77,7 +76,6 @@ const CourseDetailsPage = async ({ params }) => {
             </ul>
           </div>
 
-         
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
               <HiOutlineAcademicCap className="text-3xl text-blue-600" />
