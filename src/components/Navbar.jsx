@@ -17,6 +17,7 @@ export default function Navbar() {
       <li>
         <Link href="/profile">My Profile</Link>
       </li>
+      
     </>
   );
 
@@ -59,12 +60,11 @@ export default function Navbar() {
             <p className="font-bold">ACME</p>
           </div>
         </div>
-        <ul className="hidden items-center gap-4 md:flex">
-          {links}
-        </ul>
+        <ul className="hidden items-center gap-4 md:flex">{links}</ul>
         <div className="hidden items-center gap-4 md:flex">
-          <Link href="#">Login</Link>
-          <Button>Sign Up</Button>
+          <Link href="/login"><Button>Login</Button></Link>
+          <Link href="/register"><Button>Sign Up</Button></Link>
+         
         </div>
       </header>
 
@@ -72,15 +72,18 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="border-t border-separator md:hidden">
           <ul className="flex flex-col gap-2 p-4">
-          { links}
-
+            {links}
 
             {/* Login and signup */}
             <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
-              <Link href="#" className="block py-2">
+              <Link href="/login" className="block py-2">
                 Login
               </Link>
-              <Button className="w-full">Sign Up</Button>
+
+              <Link href={"/register"}>
+                {" "}
+                <Button className="w-full"> Sign Up </Button>
+              </Link>
             </li>
           </ul>
         </div>
