@@ -22,18 +22,24 @@ const RegisterPage = () => {
     const userData = Object.fromEntries(formData.entries());
 
     const { data, error } = await authClient.signUp.email({
-      name: userData.name, 
-      email: userData.email, 
-      password: userData.password, 
+      name: userData.name,
+      email: userData.email,
+      password: userData.password,
       image: userData.image,
     });
     console.log(data);
-    if(data){
-        alert('SignUp successfully')
+    if (data) {
+      alert("SignUp successfully");
     }
-    if(error){
-        alert(error.message)
+    if (error) {
+      alert(error.message);
     }
+  };
+
+  const googleLogin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
   };
   return (
     <div>
@@ -184,10 +190,11 @@ const RegisterPage = () => {
           <div className="text-center">
             <Button
               variant="secondary"
-              className="h-12 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 "
+              className="h-12 rounded-xl border border-gray-300 bg-white hover:bg-gray-50"
+              onClick={googleLogin}
             >
               <FcGoogle size={25} />
-              Login with Google
+              Sign up with Google
             </Button>
           </div>
 
