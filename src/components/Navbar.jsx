@@ -20,6 +20,8 @@ export default function Navbar() {
       <li>
         <Link href="/courses">Courses</Link>
       </li>
+
+      
       <li>
         <Link href="/profile">My Profile</Link>
       </li>
