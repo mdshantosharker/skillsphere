@@ -10,32 +10,30 @@ const ProfilePage = async () => {
   });
   const student = session.user;
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-100 to-gray-300 p-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-          Student Profile Section
+    <div className="min-h-[55vh] pt-10 bg-linear-to-br from-slate-50 to-slate-200 p-6">
+      <div className="mx-auto max-w-4xl">
+        <h1 className="mb-10 text-center text-3xl font-bold text-slate-800">
+          Student Profile
         </h1>
 
-        <div className="">
-          <div
-            key={student.id}
-            className="bg-white flex justify-center space-y-2 flex-col items-center shadow-lg rounded-2xl p-5 hover:shadow-xl transition"
-          >
-            <Avatar>
-                <Avatar.Image alt={student?.name} src={student?.image} />
-                <Avatar.Fallback>{student?.name}</Avatar.Fallback>
-              </Avatar>
+        <div className="mx-auto max-w-md rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-lg transition hover:shadow-2xl">
+          <div className="mx-auto flex justify-center mb-5">
+            <Avatar className="h-24 w-24">
+              <Avatar.Image alt={student?.name} src={student?.image} />
+              <Avatar.Fallback className="text-xl font-bold">
+                {student?.name}
+              </Avatar.Fallback>
+            </Avatar>
+          </div>
 
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-xl font-semibold text-gray-800">
-                  {student.name}
-                </h2>
-                <p className="text-gray-500 text-sm">{student.email}</p>
-              </div>
-            </div>
+          <h2 className="text-2xl font-bold text-slate-800">{student?.name}</h2>
 
-            <UserProfileUpdateModel/>
+          <p className="mt-1 text-sm text-slate-500">{student?.email}</p>
+
+          <div className="my-6 border-t border-slate-100"></div>
+
+          <div className="flex justify-center">
+            <UserProfileUpdateModel />
           </div>
         </div>
       </div>

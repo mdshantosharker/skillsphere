@@ -98,7 +98,7 @@ export default function Navbar() {
             <>
               <Link href="/login">
                 <Button
-                  variant="light"
+                  variant="outline"
                   className="h-11 rounded-xl px-6 text-slate-300 hover:bg-slate-800"
                 >
                   Login
@@ -107,7 +107,7 @@ export default function Navbar() {
 
               <Link href="/register">
                 <Button className="h-11 rounded-xl bg-blue-500 px-6 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105 hover:bg-blue-600">
-                  Get Started
+                  SignUp
                 </Button>
               </Link>
             </>

@@ -8,13 +8,11 @@ export default function Home() {
   return (
     <div>
       <Banner></Banner>
-
       <div className="bg-slate-100">
-
-      <div className="container mx-auto px-6 lg:px-10 pt-16 ">
-        <PopularCourses />
-        <ExtraSection></ExtraSection>
-      </div>
+        <div className="container mx-auto px-6 lg:px-10 pt-16 ">
+          <PopularCourses />
+          <ExtraSection></ExtraSection>
+        </div>
         <Learning />
         <Instructors />
       </div>
