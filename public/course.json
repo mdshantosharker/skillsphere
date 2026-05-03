@@ -10,7 +10,14 @@
     "level": "Beginner",
     "description": "Learn full-stack web development from scratch. Master HTML, CSS, JavaScript, React and Node.js.",
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=90",
-    "category": "Web Dev"
+    "category": "Web Dev",
+    "whatYouWillLearn": [
+      "Build real-world full-stack web applications",
+      "Master HTML, CSS and JavaScript fundamentals",
+      "Develop dynamic UIs with React",
+      "Build backend APIs with Node.js & Express",
+      "Work with databases and deploy to production"
+    ]
   },
   {
     "id": 2,
@@ -23,7 +30,14 @@
     "level": "Intermediate",
     "description": "Master machine learning algorithms, neural networks, and real-world AI projects with Python & scikit-learn.",
     "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=90",
-    "category": "AI & ML"
+    "category": "AI & ML",
+    "whatYouWillLearn": [
+      "Understand core machine learning algorithms",
+      "Build predictive models with scikit-learn",
+      "Implement neural networks from scratch",
+      "Work with real-world datasets and pipelines",
+      "Deploy ML models to production"
+    ]
   },
   {
     "id": 3,
@@ -36,7 +50,14 @@
     "level": "Intermediate",
     "description": "Learn penetration testing, network security, vulnerability assessment, and ethical hacking from industry experts.",
     "image": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1200&q=90",
-    "category": "Cybersecurity"
+    "category": "Cybersecurity",
+    "whatYouWillLearn": [
+      "Perform penetration testing on real systems",
+      "Understand common vulnerabilities and exploits",
+      "Use tools like Kali Linux, Nmap, Metasploit",
+      "Conduct network traffic analysis",
+      "Write professional security audit reports"
+    ]
   },
   {
     "id": 4,
@@ -49,7 +70,14 @@
     "level": "Intermediate",
     "description": "Build production-ready React applications with Next.js, TypeScript, Tailwind CSS and modern state management.",
     "image": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90",
-    "category": "Frontend"
+    "category": "Frontend",
+    "whatYouWillLearn": [
+      "Master React hooks and component architecture",
+      "Build SSR & SSG apps with Next.js",
+      "Style UIs with Tailwind CSS",
+      "Manage state with Redux & Zustand",
+      "Deploy production-ready frontend applications"
+    ]
   },
   {
     "id": 5,
@@ -62,7 +90,14 @@
     "level": "Beginner",
     "description": "Create cross-platform iOS & Android apps with Flutter and Dart. Publish your first app to both stores.",
     "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=90",
-    "category": "App Dev"
+    "category": "App Dev",
+    "whatYouWillLearn": [
+      "Learn Dart programming from scratch",
+      "Build cross-platform iOS & Android apps",
+      "Create beautiful UIs with Flutter widgets",
+      "Integrate REST APIs and Firebase",
+      "Publish apps to Google Play & App Store"
+    ]
   },
   {
     "id": 6,
@@ -75,7 +110,14 @@
     "level": "Advanced",
     "description": "Dive into CNNs, RNNs, Transformers, and GANs. Build cutting-edge deep learning models with TensorFlow & PyTorch.",
     "image": "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=1200&q=90",
-    "category": "AI & ML"
+    "category": "AI & ML",
+    "whatYouWillLearn": [
+      "Build CNNs for image recognition tasks",
+      "Implement RNNs and LSTMs for sequences",
+      "Understand and apply Transformer architecture",
+      "Train GANs for generative AI projects",
+      "Use TensorFlow and PyTorch professionally"
+    ]
   },
   {
     "id": 7,
@@ -88,7 +130,14 @@
     "level": "Intermediate",
     "description": "Build scalable REST APIs, authentication systems, and microservices with Node.js, Express, and MongoDB.",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=90",
-    "category": "Backend"
+    "category": "Backend",
+    "whatYouWillLearn": [
+      "Build and structure scalable REST APIs",
+      "Implement JWT-based authentication & authorization",
+      "Work with MongoDB and Mongoose ODM",
+      "Design microservices architecture",
+      "Deploy Node.js apps with Docker"
+    ]
   },
   {
     "id": 8,
@@ -101,7 +150,14 @@
     "level": "Advanced",
     "description": "Secure AWS infrastructure, implement IAM policies, threat detection, and compliance for enterprise environments.",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=90",
-    "category": "Cybersecurity"
+    "category": "Cybersecurity",
+    "whatYouWillLearn": [
+      "Secure AWS infrastructure end-to-end",
+      "Configure IAM roles, policies and MFA",
+      "Set up threat detection with GuardDuty",
+      "Implement VPC security and firewall rules",
+      "Achieve cloud compliance and governance"
+    ]
   },
   {
     "id": 9,
@@ -114,7 +170,14 @@
     "level": "Beginner",
     "description": "Analyze and visualize data using Python, Pandas, NumPy, and Matplotlib. Build real data science projects.",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
-    "category": "Data Science"
+    "category": "Data Science",
+    "whatYouWillLearn": [
+      "Clean and analyze data with Pandas & NumPy",
+      "Visualize insights with Matplotlib & Seaborn",
+      "Build end-to-end data science projects",
+      "Apply statistical analysis techniques",
+      "Present data findings effectively"
+    ]
   },
   {
     "id": 10,
@@ -127,7 +190,14 @@
     "level": "Intermediate",
     "description": "Build native iPhone apps using Swift and SwiftUI. Deploy to App Store with real portfolio projects.",
     "image": "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=1200&q=90",
-    "category": "App Dev"
+    "category": "App Dev",
+    "whatYouWillLearn": [
+      "Master Swift programming language",
+      "Build native UIs with SwiftUI",
+      "Integrate APIs and CoreData",
+      "Handle app lifecycle and navigation",
+      "Submit and publish apps to the App Store"
+    ]
   },
   {
     "id": 11,
@@ -140,7 +210,14 @@
     "level": "Intermediate",
     "description": "Build powerful backend APIs with Django REST Framework, PostgreSQL, JWT auth, and Docker deployment.",
     "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=90",
-    "category": "Backend"
+    "category": "Backend",
+    "whatYouWillLearn": [
+      "Build REST APIs with Django REST Framework",
+      "Design and manage PostgreSQL databases",
+      "Implement JWT authentication",
+      "Write unit tests for backend services",
+      "Containerize and deploy apps with Docker"
+    ]
   },
   {
     "id": 12,
@@ -153,7 +230,14 @@
     "level": "Advanced",
     "description": "Build AI-powered apps with OpenAI, LangChain, RAG, fine-tuning, and prompt engineering techniques.",
     "image": "https://images.unsplash.com/photo-1676299081847-824916de030a?w=1200&q=90",
-    "category": "AI & ML"
+    "category": "AI & ML",
+    "whatYouWillLearn": [
+      "Use OpenAI API to build AI-powered apps",
+      "Build RAG pipelines with LangChain",
+      "Fine-tune LLMs on custom datasets",
+      "Master prompt engineering techniques",
+      "Deploy LLM applications to production"
+    ]
   },
   {
     "id": 13,
@@ -166,7 +250,14 @@
     "level": "Beginner",
     "description": "Design beautiful, user-friendly interfaces. Learn Figma, design systems, prototyping, and UX research.",
     "image": "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=1200&q=90",
-    "category": "Frontend"
+    "category": "Frontend",
+    "whatYouWillLearn": [
+      "Design professional UIs in Figma",
+      "Build scalable design systems and components",
+      "Create interactive prototypes and wireframes",
+      "Conduct UX research and user testing",
+      "Hand off designs to developers efficiently"
+    ]
   },
   {
     "id": 14,
@@ -179,7 +270,14 @@
     "level": "Advanced",
     "description": "Master OSCP-style pen testing, network analysis, exploit development, and security reporting.",
     "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200&q=90",
-    "category": "Cybersecurity"
+    "category": "Cybersecurity",
+    "whatYouWillLearn": [
+      "Perform OSCP-style penetration tests",
+      "Analyze network traffic with Wireshark",
+      "Develop and execute custom exploits",
+      "Identify and escalate privilege vulnerabilities",
+      "Write detailed security assessment reports"
+    ]
   },
   {
     "id": 15,
@@ -192,6 +290,13 @@
     "level": "Intermediate",
     "description": "Build and ship iOS & Android apps with React Native, Expo, and Redux. Includes authentication and payment integration.",
     "image": "https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=1200&q=90",
-    "category": "App Dev"
+    "category": "App Dev",
+    "whatYouWillLearn": [
+      "Build cross-platform apps with React Native",
+      "Use Expo for rapid development and testing",
+      "Manage app state with Redux",
+      "Integrate authentication and payment gateways",
+      "Deploy apps to both iOS and Android stores"
+    ]
   }
 ]

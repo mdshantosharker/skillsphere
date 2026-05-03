@@ -2,6 +2,8 @@ import { getCourses } from "@/lib/api";
 import { Card, CloseButton, Button } from "@heroui/react";
 import Link from "next/link";
 import React from "react";
+import { FiTarget } from "react-icons/fi";
+import { HiOutlineAcademicCap } from "react-icons/hi";
 
 const CourseDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -14,7 +16,7 @@ const CourseDetailsPage = async ({ params }) => {
       <Card className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
         <div className="relative h-75 w-full overflow-hidden">
           <img
-            src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/docs/cherries.jpeg"
+            src={findCourse.image}
             alt="course"
             className="h-full rounded-xl w-full object-cover"
           />
@@ -58,48 +60,51 @@ const CourseDetailsPage = async ({ params }) => {
             </div>
           </div>
 
-          {/* Extra Info */}
+       
           <div className="mt-8 rounded-2xl border border-slate-100 bg-slate-50 p-5">
-            <h3 className="text-lg font-semibold text-slate-800">
-              🎯 What you will learn
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-slate-800">
+              <FiTarget className="text-blue-600" /> What you will learn
             </h3>
 
             <ul className="mt-3 space-y-2 text-sm text-slate-500">
-              <li>• Build real-world web applications</li>
+              {
+                findCourse.whatYouWillLearn.map(f=> <li>• {f}</li>)
+              }
+              {/* <li>• Build real-world web applications</li>
               <li>• Master React & Next.js</li>
               <li>• Learn backend API development</li>
-              <li>• Deploy full projects to production</li>
+              <li>• Deploy full projects to production</li> */}
             </ul>
           </div>
 
-          {/* Footer */}
+         
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
-              <div className="text-2xl">📚</div>
+              <HiOutlineAcademicCap className="text-3xl text-blue-600" />
 
               <div>
                 <p className="text-xs text-slate-500">Category</p>
                 <h2 className="text-lg font-bold text-slate-800">
-                  Web Development
+                  {findCourse.category}
                 </h2>
               </div>
             </div>
 
-            {/* Instructor */}
             <div className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
-              {/* avatar */}
               <img
-                src="https://i.pravatar.cc/100?img=12"
+                src={findCourse?.instructorImage}
                 className="h-12 w-12 rounded-full border border-white shadow"
                 alt="instructor"
               />
 
               <div>
-                <p className="text-xs text-slate-500">Instructor</p>
+                <p className="text-xs text-slate-500">
+                  {findCourse?.instructor}
+                </p>
                 <h2 className="text-lg font-bold text-slate-800">John Doe</h2>
 
                 <p className="text-xs text-slate-500 flex items-center gap-1">
-                  👨‍🏫 Full Stack Developer
+                  {findCourse?.instructorDesignation}
                 </p>
               </div>
             </div>
