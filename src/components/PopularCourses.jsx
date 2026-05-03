@@ -1,12 +1,12 @@
 import { getCourses } from "@/lib/api";
 import React from "react";
 import { Button, Card, CloseButton } from "@heroui/react";
+import Link from "next/link";
 const PopularCourses = async () => {
   const AllCourses = await getCourses();
   console.log(AllCourses);
 
-
-  const topCourse = AllCourses.filter(f=>f.rating>'4.8')
+  const topCourse = AllCourses.filter((f) => f.rating > "4.8");
   console.log(topCourse);
 
   return (
@@ -45,7 +45,12 @@ const PopularCourses = async () => {
                     Submission ends Oct 10.
                   </span>
                 </div>
-                <Button className="w-full sm:w-auto">Apply Now</Button>
+
+                <Link href={`/courses/${course.id}`}>
+                  <Button className="w-full sm:w-auto">
+                    View Details button
+                  </Button>
+                </Link>
               </Card.Footer>
             </div>
           </Card>
