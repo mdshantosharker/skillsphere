@@ -66,13 +66,9 @@ const CourseDetailsPage = async ({ params }) => {
             </h3>
 
             <ul className="mt-3 space-y-2 text-sm text-slate-500">
-              {findCourse.whatYouWillLearn.map((f) => (
-                <li>• {f}</li>
+              {findCourse.whatYouWillLearn.map((f, index) => (
+                <li key={index}>• {f}</li>
               ))}
-              {/* <li>• Build real-world web applications</li>
-              <li>• Master React & Next.js</li>
-              <li>• Learn backend API development</li>
-              <li>• Deploy full projects to production</li> */}
             </ul>
           </div>
 
