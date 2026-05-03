@@ -10,41 +10,106 @@ const CourseDetailsPage = async ({ params }) => {
   console.log(findCourse);
 
   return (
-    <div>
-      <Card key={course.id} className="w-full items-stretch md:flex-row">
-        <div className="relative h-35 w-full shrink-0 overflow-hidden rounded-2xl sm:h-30 sm:w-30">
+    <div className="mx-auto max-w-5xl px-6 py-16 lg:px-10">
+      <Card className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+        <div className="relative h-75 w-full overflow-hidden">
           <img
-            alt="Cherries"
-            className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
-            loading="lazy"
             src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/docs/cherries.jpeg"
+            alt="course"
+            className="h-full rounded-xl w-full object-cover"
           />
+
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
+
+          <div className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-1 text-xs font-semibold text-blue-600 shadow">
+            ⭐ Featured Course
+          </div>
         </div>
-        <div className="flex flex-1 flex-col gap-3">
-          <Card.Header className="gap-1">
-            <Card.Title className="pr-8">Become an ACME Creator!</Card.Title>
-            <Card.Description>
-              Lorem ipsum dolor sit amet consectetur. Sed arcu donec id aliquam
-              dolor sed amet faucibus etiam.
-            </Card.Description>
-            <CloseButton
-              aria-label="Close banner"
-              className="absolute top-3 right-3"
-            />
-          </Card.Header>
-          <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-col">
-              <span className="text-sm font-medium text-foreground">
-                Only 10 spots
-              </span>
-              <span className="text-xs text-muted">
-                Submission ends Oct 10.
-              </span>
+
+        <div className="p-8">
+          <h1 className="text-3xl font-extrabold text-slate-800 lg:text-4xl">
+            {findCourse.title}
+          </h1>
+
+          <p className="mt-4 text-sm leading-relaxed text-slate-500 lg:text-base">
+            {findCourse.description}
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-center">
+              <p className="text-sm text-slate-500">📦 Level</p>
+              <h3 className="mt-1 font-bold text-slate-800">
+                {findCourse.level}
+              </h3>
             </div>
-            <Link href={`/`}>
-              <Button className="w-full sm:w-auto">back to home</Button>
+
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-center">
+              <p className="text-sm text-slate-500">⏳ Duration</p>
+              <h3 className="mt-1 font-bold text-slate-800">
+                {findCourse.duration}
+              </h3>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-center">
+              <p className="text-sm text-slate-500">⭐ Rating</p>
+              <h3 className="mt-1 font-bold text-slate-800">
+                {findCourse.rating}
+              </h3>
+            </div>
+          </div>
+
+          {/* Extra Info */}
+          <div className="mt-8 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+            <h3 className="text-lg font-semibold text-slate-800">
+              🎯 What you will learn
+            </h3>
+
+            <ul className="mt-3 space-y-2 text-sm text-slate-500">
+              <li>• Build real-world web applications</li>
+              <li>• Master React & Next.js</li>
+              <li>• Learn backend API development</li>
+              <li>• Deploy full projects to production</li>
+            </ul>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
+              <div className="text-2xl">📚</div>
+
+              <div>
+                <p className="text-xs text-slate-500">Category</p>
+                <h2 className="text-lg font-bold text-slate-800">
+                  Web Development
+                </h2>
+              </div>
+            </div>
+
+            {/* Instructor */}
+            <div className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
+              {/* avatar */}
+              <img
+                src="https://i.pravatar.cc/100?img=12"
+                className="h-12 w-12 rounded-full border border-white shadow"
+                alt="instructor"
+              />
+
+              <div>
+                <p className="text-xs text-slate-500">Instructor</p>
+                <h2 className="text-lg font-bold text-slate-800">John Doe</h2>
+
+                <p className="text-xs text-slate-500 flex items-center gap-1">
+                  👨‍🏫 Full Stack Developer
+                </p>
+              </div>
+            </div>
+
+            <Link href="/">
+              <Button className="h-12 rounded-xl bg-blue-600 px-6 font-semibold text-white shadow-lg shadow-blue-200 transition hover:scale-105 hover:bg-blue-700">
+                ← Back to Home
+              </Button>
             </Link>
-          </Card.Footer>
+          </div>
         </div>
       </Card>
     </div>
