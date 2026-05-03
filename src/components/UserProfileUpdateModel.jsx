@@ -13,7 +13,7 @@ export function UserProfileUpdateModel() {
       image: image,
       name: name,
     });
-    // console.log(name, image);
+    
   };
 
   return (

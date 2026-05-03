@@ -8,12 +8,7 @@ const ProfilePage = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-
   const student = session.user;
-
-  console.log(student);
-  const students = [{ id: 1, name: "Rahim Uddin", email: "rahim@example.com" }];
-
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-100 to-gray-300 p-6">
       <div className="max-w-4xl mx-auto">
