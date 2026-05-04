@@ -11,10 +11,14 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -26,13 +30,17 @@ const RegisterPage = () => {
       email: userData.email,
       password: userData.password,
       image: userData.image,
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/login");
+        },
+      },
     });
-    console.log(data);
     if (data) {
-      alert("SignUp successfully");
+      toast.success("SignUp successfully");
     }
     if (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
@@ -40,6 +48,9 @@ const RegisterPage = () => {
     const data = await authClient.signIn.social({
       provider: "google",
     });
+    if (data) {
+      toast.success("Login successfully");
+    }
   };
   return (
     <div>

@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,10 +30,10 @@ const LoginPage = () => {
     });
     console.log(data);
     if (data) {
-      alert("Login successfully");
+      toast.success("Login successfully");
     }
     if (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
@@ -40,6 +41,9 @@ const LoginPage = () => {
     const data = await authClient.signIn.social({
       provider: "google",
     });
+    if (data) {
+      toast.success("Login successfully");
+    }
   };
 
   return (

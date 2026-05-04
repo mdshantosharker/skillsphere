@@ -8,6 +8,7 @@ import { FaArrowRightToBracket } from "react-icons/fa6";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import { useRouter } from "next/navigation";
 import NavLink from "./NavLink";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,6 +39,7 @@ export default function Navbar() {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
+          toast.warn("Logged out successfully");
           router.push("/login");
         },
       },
@@ -115,7 +117,6 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="border-t border-slate-800 bg-slate-950 md:hidden">
           <div className="space-y-6 px-6 py-6">
