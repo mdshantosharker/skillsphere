@@ -8,6 +8,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedin,
+  FaFileContract,
 } from "react-icons/fa";
 const Footer = () => {
   return (
@@ -62,6 +63,12 @@ const Footer = () => {
             <ul className="mt-5 space-y-3 text-sm">
               <li>
                 <a className="hover:text-white transition">Help Center</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <FaFileContract />
+                <a href="/terms" className="transition hover:text-white">
+                  Terms & Conditions
+                </a>
               </li>
               <li>
                 <a className="hover:text-white transition">Contact Us</a>

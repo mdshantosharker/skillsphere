@@ -119,29 +119,26 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="border-t border-slate-800 bg-slate-950 md:hidden">
           <div className="space-y-6 px-6 py-6">
-            {/* Links */}
             <ul className="space-y-5 text-lg">{links}</ul>
 
-            {/* Auth */}
             <div className="border-t border-slate-800 pt-6">
               {user ? (
                 <div className="space-y-5">
-                  <div className="flex items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-3">
-                    <Avatar
-                      src={user?.image}
-                      className="h-11 w-11 border border-slate-700"
-                    />
+                  <div className="flex items-center gap-3 rounded-2xl border  bg-slate-900 p-3">
+                    <Avatar>
+                      <Avatar.Image alt={user?.name} src={user?.image} />
+                      <Avatar.Fallback>{user?.name}</Avatar.Fallback>
+                    </Avatar>
 
                     <div>
                       <h3 className="font-semibold text-white">{user?.name}</h3>
-
-                      <p className="text-sm text-slate-400">Welcome back 👋</p>
                     </div>
                   </div>
 
                   <Button
+                    variant="danger-soft"
                     onClick={userSignOut}
-                    className="h-12 w-full rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white"
+                    className="h-12 w-full rounded-xl bg-white text-red-400 hover:bg-red-500 hover:text-white"
                   >
                     Sign Out
                     <FaArrowRightToBracket />
@@ -151,16 +148,16 @@ export default function Navbar() {
                 <div className="flex flex-col gap-3">
                   <Link href="/login">
                     <Button
-                      variant="bordered"
-                      className="h-12 w-full rounded-xl border-slate-700 text-white hover:bg-slate-900"
+                      variant="outline"
+                      className="h-11 w-full rounded-xl px-6 text-slate-300 hover:bg-slate-800"
                     >
                       Login
                     </Button>
                   </Link>
 
                   <Link href="/register">
-                    <Button className="h-12 w-full rounded-xl bg-blue-500 font-semibold text-white hover:bg-blue-600">
-                      Create Account
+                    <Button className="h-11 w-full rounded-xl bg-blue-500 px-6 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105 hover:bg-blue-600">
+                      SignUp
                     </Button>
                   </Link>
                 </div>

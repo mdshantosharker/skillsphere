@@ -92,10 +92,10 @@ const CourseDetailsPage = async ({ params }) => {
               />
 
               <div>
-                <p className="text-xs text-slate-500">
+                <p className="text-lg font-bold text-slate-800">
                   {findCourse?.instructor}
                 </p>
-                <h2 className="text-lg font-bold text-slate-800">John Doe</h2>
+               
 
                 <p className="text-xs text-slate-500 flex items-center gap-1">
                   {findCourse?.instructorDesignation}

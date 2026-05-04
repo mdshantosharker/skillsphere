@@ -17,12 +17,12 @@ const PopularCourses = async () => {
         return (
           <Card
             key={course.id}
-            className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
           >
             <div className="relative overflow-hidden">
               <img
                 alt={course?.title}
-                className="h-56 w-full object-cover transition duration-500 group-hover:scale-110"
+                className="h-56 rounded-xl w-full object-cover transition duration-500 group-hover:scale-110"
                 loading="lazy"
                 src={course?.image}
               />
@@ -49,6 +49,24 @@ const PopularCourses = async () => {
               <Card.Description className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-500">
                 {course?.description}
               </Card.Description>
+
+              <div className="flex mt-4 items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
+                <img
+                  src={course?.instructorImage}
+                  className="h-12 w-12 rounded-full border border-white shadow"
+                  alt="instructor"
+                />
+
+                <div>
+                  <p className="text-lg font-bold text-slate-800">
+                    {course?.instructor}
+                  </p>
+
+                  <p className="text-xs text-slate-500 flex items-center gap-1">
+                    {course?.instructorDesignation}
+                  </p>
+                </div>
+              </div>
 
               <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-slate-700">
                 <GiDuration size={20} />
