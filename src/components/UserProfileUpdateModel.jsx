@@ -2,9 +2,11 @@
 
 import { authClient } from "@/lib/auth-client";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
+import { useRouter } from "next/navigation";
 import { BiEdit, BiUser } from "react-icons/bi";
 
 export function UserProfileUpdateModel() {
+  const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -12,8 +14,12 @@ export function UserProfileUpdateModel() {
     await authClient.updateUser({
       image: image,
       name: name,
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/profile");
+        },
+      },
     });
-    
   };
 
   return (
@@ -47,7 +53,9 @@ export function UserProfileUpdateModel() {
                     <Button slot="close" variant="secondary">
                       Cancel
                     </Button>
-                    <Button type="submit" slot="close">Save</Button>
+                    <Button type="submit" slot="close">
+                      Save
+                    </Button>
                   </Modal.Footer>
                 </form>
               </Surface>
