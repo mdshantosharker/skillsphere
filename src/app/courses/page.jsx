@@ -73,6 +73,24 @@ const AllCoursesPage = () => {
                 {course?.description}
               </Card.Description>
 
+              <div className="flex mt-4 items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
+                <img
+                  src={course?.instructorImage}
+                  className="h-12 w-12 rounded-full border border-white shadow"
+                  alt="instructor"
+                />
+
+                <div>
+                  <p className="text-lg font-bold text-slate-800">
+                    {course?.instructor}
+                  </p>
+
+                  <p className="text-xs text-slate-500 flex items-center gap-1">
+                    {course?.instructorDesignation}
+                  </p>
+                </div>
+              </div>
+
               <div className="mt-4 flex items-center gap-2 text-sm">
                 <GiDuration size={20} />
                 <span>{course?.duration}</span>
