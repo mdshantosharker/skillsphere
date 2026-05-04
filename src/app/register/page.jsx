@@ -32,7 +32,7 @@ const RegisterPage = () => {
       image: userData.image,
       fetchOptions: {
         onSuccess: () => {
-          router.push("/login");
+          router.push("/");
         },
       },
     });

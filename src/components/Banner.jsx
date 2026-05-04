@@ -1,7 +1,10 @@
+"use client";
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import React from "react";
+import Lottie from "lottie-react";
 import { SiSimilarweb } from "react-icons/si";
+import animationData from "../../public/STUDENT.json";
 
 const Banner = () => {
   return (
@@ -65,13 +68,7 @@ const Banner = () => {
           <div className="absolute inset-0 rounded-[30px] bg-linear-to-r from-blue-500/30 to-cyan-400/20 blur-2xl"></div>
 
           <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-xl">
-            <Image
-              className="rounded-2xl object-cover"
-              width={700}
-              height={700}
-              src="/unnamed.png"
-              alt="banner"
-            />
+            <Lottie animationData={animationData} loop={true} />
           </div>
 
           <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/10 bg-slate-900/80 p-5 shadow-2xl backdrop-blur-lg lg:block">
