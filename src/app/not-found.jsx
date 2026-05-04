@@ -1,36 +1,34 @@
+"use client";
 import React from "react";
+import Lottie from "lottie-react";
+import animationData from "../../public/404page.json";
+import Link from "next/link";
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-900 via-gray-800 to-black px-6">
-      <div className="text-center max-w-md">
-        <div className="text-9xl font-extrabold text-white tracking-widest">
-          404
-        </div>
-
-        <div className="mt-4 text-2xl md:text-3xl font-semibold text-gray-200">
-          Page Not Found
-        </div>
-
-        <p className="mt-3 text-gray-400">
-          The page you are looking for doesn't exist or has been moved.
-        </p>
-
-        <div className="mt-8 flex justify-center">
-          <a
-            href="/"
-            className="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-blue-600 rounded-full shadow-lg group"
-          >
-            <span className="absolute top-0 left-0 w-full h-full -mt-1 transition-all duration-300 ease-in-out bg-blue-700 group-hover:mt-0 group-hover:bg-blue-800"></span>
-            <span className="absolute inset-0 w-full h-full opacity-30 bg-linear-to-b from-white to-transparent"></span>
-            <span className="relative">Go Home</span>
-          </a>
-        </div>
-
-        <div className="mt-10 text-sm text-gray-500">
-          If you think this is a mistake, please check the URL.
-        </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 px-6">
+      
+      {/* Lottie Animation */}
+      <div className="w-87.5 md:w-125">
+        <Lottie animationData={animationData} loop={true} />
       </div>
+
+      {/* Text */}
+      <h1 className="text-white text-3xl md:text-4xl font-bold mt-6">
+        Page Not Found
+      </h1>
+
+      <p className="text-gray-400 mt-2 text-center max-w-md">
+        The page you are looking for doesn't exist or has been moved.
+      </p>
+
+      {/* Back Home Button */}
+      <Link
+        href="/"
+        className="mt-6 inline-flex items-center justify-center px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg transition"
+      >
+        ← Back to Home
+      </Link>
     </div>
   );
 };

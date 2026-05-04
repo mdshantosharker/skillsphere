@@ -11,7 +11,7 @@ const TrandingCourses = () => {
   ];
 
   return (
-    <section className="py-16 text-slate-800">
+    <section className="py-16 pt-30 text-slate-800">
       <div className="">
         <h2 className="text-6xl mb-3 font-bold text-center text-slate-900">
           🔥Trending Courses
