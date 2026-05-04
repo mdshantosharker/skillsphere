@@ -8,7 +8,7 @@ import animationData from "../../public/STUDENT.json";
 
 const Banner = () => {
   return (
-    <div className="relative overflow-hidden bg-linear-to-br from-slate-950 via-slate-900 to-blue-950 text-white">
+    <div className="animate__animated animate__fadeInDown relative overflow-hidden bg-linear-to-br from-slate-950 via-slate-900 to-blue-950 text-white">
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl"></div>
 

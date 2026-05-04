@@ -31,8 +31,9 @@ const RegisterPage = () => {
       password: userData.password,
       image: userData.image,
       fetchOptions: {
-        onSuccess: () => {
-          router.push("/");
+        onSuccess: async () => {
+          await authClient.signOut();
+          router.push("/login");
         },
       },
     });
@@ -47,10 +48,12 @@ const RegisterPage = () => {
   const googleLogin = async () => {
     const data = await authClient.signIn.social({
       provider: "google",
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/");
+        },
+      },
     });
-    if (data) {
-      toast.success("Login successfully");
-    }
   };
   return (
     <div>
