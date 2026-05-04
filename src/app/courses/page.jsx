@@ -1,95 +1,95 @@
+"use client";
+
 import { getCourses } from "@/lib/api";
-import { Card, CloseButton, Button } from "@heroui/react";
+import { Card, Button } from "@heroui/react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillForward } from "react-icons/ai";
 import { GiDuration } from "react-icons/gi";
 
-const AllCoursesPage = async () => {
-  const AllCourses = await getCourses();
+const AllCoursesPage = () => {
+  const [allCourses, setAllCourses] = useState([]);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const data = await getCourses();
+      setAllCourses(data || []);
+    };
+
+    fetchCourses();
+  }, []);
+
+  const filteredCourses = allCourses.filter((course) =>
+    course.title.toLowerCase().includes(search.toLowerCase()),
+  );
+
   return (
     <div className="container mx-auto px-6 my-10 lg:px-10">
+      <div className="mb-8 flex justify-center">
+        <div className="flex w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="relative flex-1">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+              🔍
+            </span>
+
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search courses..."
+              className="w-full py-3 pl-12 pr-3 text-sm outline-none"
+            />
+          </div>
+        </div>
+      </div>
+
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
-        {AllCourses?.map((course) => {
-          return (
-            <Card
-              key={course.id}
-              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  alt={course?.title}
-                  className="h-56 w-full object-cover transition duration-500 group-hover:scale-110"
-                  loading="lazy"
-                  src={course?.image}
-                />
+        {filteredCourses.map((course) => (
+          <Card
+            key={course.id}
+            className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div className="relative overflow-hidden">
+              <img
+                alt={course?.title}
+                className="h-56 w-full object-cover transition duration-500 group-hover:scale-110"
+                src={course?.image}
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
+            </div>
 
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
-
-                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-4 py-1 text-xs font-semibold text-blue-600 shadow backdrop-blur">
-                  ⭐ Top Rated
-                </div>
+            <div className="flex flex-1 flex-col p-6">
+              <div className="mb-3 flex items-center gap-2 text-sm font-medium text-slate-500">
+                <AiFillForward size={20} />
+                <span>{course?.level}</span>
               </div>
 
-              <div className="flex flex-1 flex-col p-6">
-                <div className="mb-3 flex items-center gap-2 text-sm font-medium text-slate-500">
-                  <AiFillForward size={20} />
-                  <span>Level</span>
-                  <span>•</span>
-                  <span>{course?.level}</span>
-                </div>
+              <Card.Title className="text-2xl font-bold">
+                {course?.title}
+              </Card.Title>
 
-                <Card.Title className="line-clamp-2 min-h-14 text-2xl font-bold leading-snug text-slate-800 transition group-hover:text-blue-600">
-                  {course?.title}
-                </Card.Title>
+              <Card.Description className="mt-2 text-sm text-slate-500">
+                {course?.description}
+              </Card.Description>
 
-                <Card.Description className="mt-3 line-clamp-3 min-h-15 text-sm leading-relaxed text-slate-500">
-                  {course?.description}
-                </Card.Description>
-
-                <div className="flex mt-4 items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
-                  <img
-                    src={course?.instructorImage}
-                    className="h-12 w-12 rounded-full border border-white shadow"
-                    alt="instructor"
-                  />
-
-                  <div>
-                    <p className="text-lg font-bold text-slate-800">
-                      {course?.instructor}
-                    </p>
-
-                    <p className="text-xs text-slate-500 flex items-center gap-1">
-                      {course?.instructorDesignation}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-slate-700">
-                  <GiDuration size={20} />
-                  <span>Duration</span>
-                  <span>•</span>
-                  <span>{course?.duration}</span>
-                </div>
-
-                <Card.Footer className="mt-auto flex items-center justify-between border-t border-slate-100 px-0 pt-5">
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-800">
-                      ⭐ {course?.rating}
-                    </h3>
-                    <p className="text-xs text-slate-500">Course Rating</p>
-                  </div>
-
-                  <Link href={`/courses/${course.id}`}>
-                    <Button className="rounded-xl bg-blue-600 px-5 font-medium text-white shadow-lg shadow-blue-200 transition hover:scale-105 hover:bg-blue-700">
-                      View Details →
-                    </Button>
-                  </Link>
-                </Card.Footer>
+              <div className="mt-4 flex items-center gap-2 text-sm">
+                <GiDuration size={20} />
+                <span>{course?.duration}</span>
               </div>
-            </Card>
-          );
-        })}
+
+              <Card.Footer className="mt-auto flex items-center justify-between pt-5">
+                <h3 className="font-bold">⭐ {course?.rating}</h3>
+
+                <Link href={`/courses/${course.id}`}>
+                  <Button className="bg-blue-600 text-white px-5 rounded-xl">
+                    View Details →
+                  </Button>
+                </Link>
+              </Card.Footer>
+            </div>
+          </Card>
+        ))}
       </div>
     </div>
   );
