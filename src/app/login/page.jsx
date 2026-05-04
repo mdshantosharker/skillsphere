@@ -11,13 +11,15 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const searchParams = useSearchParams();
+  const callback = searchParams.get("callback") || "/";
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -26,7 +28,7 @@ const LoginPage = () => {
     const { data, error } = await authClient.signIn.email({
       email: userData.email,
       password: userData.password,
-      callbackURL: "/",
+      callbackURL: callback,
     });
     console.log(data);
     if (data) {
@@ -40,6 +42,7 @@ const LoginPage = () => {
   const googleLogin = async () => {
     const data = await authClient.signIn.social({
       provider: "google",
+      callbackURL: callback,
     });
   };
 

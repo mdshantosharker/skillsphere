@@ -20,6 +20,8 @@ import { toast } from "react-toastify";
 const RegisterPage = () => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
+  const searchParams = useSearchParams();
+  const callback = searchParams.get("callback") || "/";
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -48,6 +50,7 @@ const RegisterPage = () => {
   const googleLogin = async () => {
     const data = await authClient.signIn.social({
       provider: "google",
+      callbackURL: callback,
     });
   };
   return (

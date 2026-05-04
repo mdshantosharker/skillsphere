@@ -8,7 +8,12 @@ export async function proxy(request) {
   });
 
   if (!session) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    const currentUrl = request.nextUrl.pathname;
+
+    const loginUrl = new URL("/login", request.url);
+    loginUrl.searchParams.set("callback", currentUrl);
+
+    return NextResponse.redirect(loginUrl);
   }
 }
 
