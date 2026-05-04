@@ -13,7 +13,7 @@ const Banner = () => {
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl"></div>
 
       <div className="relative mx-auto flex container flex-col-reverse items-center gap-16 px-6 py-16 lg:flex-row lg:px-10 lg:py-24">
-        {/* Left Content */}
+       
         <div className="space-y-7 lg:w-1/2">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-300 backdrop-blur">
             <SiSimilarweb /> Learn Modern Web Development
