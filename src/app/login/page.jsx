@@ -41,9 +41,9 @@ const LoginPage = () => {
     const data = await authClient.signIn.social({
       provider: "google",
     });
-    // if (data) {
-    //   toast.success("Login successfully");
-    // }
+    if (data) {
+      toast.success("Login successfully");
+    }
   };
 
   return (

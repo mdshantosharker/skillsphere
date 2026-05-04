@@ -39,9 +39,9 @@ const RegisterPage = () => {
     if (data) {
       toast.success("SignUp successfully");
     }
-    // if (error) {
-    //   toast.error(error.message);
-    // }
+    if (error) {
+      toast.error(error.message);
+    }
   };
 
   const googleLogin = async () => {
